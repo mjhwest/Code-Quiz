@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-
 <body>
     <header>
         <h1> Its Code Quizz Time </h1>
-        <nav> High Scores
-            <a href="highscores.html"> </a>
+        <nav>
+            <a href="highscores.html"> High Scores </a>
         </nav>
     </header>
 
@@ -28,14 +27,16 @@
                 <p> Your aim is to answer the code inspired questoins correctly to test your knownledge. But remember, any incorrect answers will result in a time deduction of 10 seconds.
                 </p>
                 <br>
-                <div id="Question" class="hide">
-                    <h2> Question </h2>
+                <div id="question-container" class="hide">
+                    <h2 id="question"></h2>
                     <div id="answer-button" class="btn-grid">
-                        <button class='btn'> Answer 1 </button>
-                        <button class='btn'> Answer 2 </button>
-                        <button class='btn'> Answer 3 </button>
-                        <button class='btn'> Answer 4 </button>
+                        <button class='btn'> Answer 1. </button>
+                        <button class='btn'> Answer 2. </button>
+                        <button class='btn'> Answer 3. </button>
+                        <button class='btn'> Answer 4. </button>
                     </div>
+
+
                 </div>
 
                 <div class="controls">
@@ -45,7 +46,7 @@
 
 
                 <!-- Create a div class for the time element of the quizz -->
-                <div class="timer">
+                <div class="timer hide">
                     <p id="countdown"></p>
                 </div>
             </header>
