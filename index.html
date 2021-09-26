@@ -6,69 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Quiz Test</title>
-    <link rel="stylesheet" href="assets/css/rest.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-<!-- NEED TO INCLUDE STILL, link to style.css sheet----done 
-                            link to reset.css sheet----done
-                            link to highscore html
-                            link to javascript sheet 
-                         -->
 
 <body>
+    <header>
+        <h1> Its Code Quizz Time </h1>
+        <nav> High Scores
+            <a href="highscores.html"> </a>
+        </nav>
+    </header>
+
     <!-- Creat a div container that will hold the elements for the quizz  -->
-    <div class="container">
+    <div class="wrapper-container">
+        <div class="wrapper-flexbox">
 
-        <!-- make a header with a title for the quiz and create a start button -->
-        <div class="question-container">
-            <h1> Its Code Quizz Time! </h1>
-            <button id="start"> Start the Quiz </button>
+            <!-- make a header with a title for the quiz and create a start button -->
+            <header>
+                <div id="questionContainer" class="hide">
+                    <p> Your aim is to answer the code inspired questoins correctly to test your knownledge. But remember, any incorrect answers will result in a time deduction of 10 seconds.
+                    </p>
+                    <br>
+                    <div id="Question"> Question
+                        <div id="answer-button" class="btn-grid">
+                            <button class='btn'> Answer 1 </button>
+                            <button class='btn'> Answer 2 </button>
+                            <button class='btn'> Answer 3 </button>
+                            <button class='btn'> Answer 4 </button>
+                        </div>
+                        <div class="controls">
+                            <!-- create a start button for the quiz -->
+                            <button id="start" class="start-btn"> Start the Quiz </button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Create a div class for the time element of the quizz -->
+                <div class="timer">
+                    <p id="countdown"></p>
+                </div>
+            </header>
         </div>
-
-        <!-- Create a div class for the time element of the quizz -->
-        <div class="timer">
-            <h2> Timer</h2>
-        </div>
-
     </div>
+    <!-- Link the javascript to the html  -->
+    <script src="assets/javascript/main.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="container">
-        <div id="question-container" class="hide">
-            <div id="question"> Question </div>
-            <div id="answer-button" class="button-grid"></div>
-            <button class="button"> Answer 1 </button>
-            <button class="button"> Answer 2 </button>
-            <button class="button"> Answer 3 </button>
-            <button class="button"> Answer 4 </button>
-            <div class="controls">
-                <button id="Start-Button" class="Start-Button-btn"> Start</button>
-            </div>
-        </div> -->
-
-
-
-
-    </div>
 </body>
 
 </html>

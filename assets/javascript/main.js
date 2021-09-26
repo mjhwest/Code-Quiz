@@ -23,7 +23,7 @@ function countdown() {
     //when time reaches 0, timeInterval is cleared and function ends. 
     var timeInterval = setInterval(function() {
         timeLeft--;
-        timerEl.textContent = timeLeft + "second left in the quiz..."
+        timerEl.textContent = timeLeft + "second left to complete quiz"
 
         if (timeLeft == 0) {
             clearInterval(timeInterval);

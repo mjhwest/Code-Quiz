@@ -1,18 +1,104 @@
- html,
- body,
- .wrapper {
-     height: 100%;
-     margin: 0;
-     padding: 0%;
- }
- 
- body {
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-     background-color: whitesmoke;
- }
- 
- .wrapper {
-     padding-top: 30px;
-     padding-left: 20px;
-     padding-right: 20px;
- }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(48, 47, 47);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+
+/* Heading and Font styles  */
+
+header {
+    padding: auto;
+    background-color: rgb(48, 47, 47);
+}
+
+h1 {
+    font-size: 35px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+    color: red;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    color: red;
+    font-size: 20px;
+    padding-left: 25%;
+}
+
+p {
+    margin-top: 10px;
+    color: red;
+    font-size: 25px;
+    text-align: center;
+}
+
+#Question {
+    font-size: 20px;
+    color: red;
+}
+
+#start {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+#start:hover {
+    background-color: skyblue;
+}
+
+
+/* format for sections  */
+
+.wrapper-container {
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    height: 500px;
+    background-color: rgb(48, 47, 47);
+    margin-left: 25%;
+}
+
+.wrapper-flexbox {
+    flex: auto;
+}
+
+.questionContainer {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(48, 47, 47);
+}
+
+#Question {
+    max-width: 80%;
+    background-color: salmon;
+    margin: auto;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 10px;
+    border: 5px;
+    padding-top: 5px;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: skyblue;
+}
