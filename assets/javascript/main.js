@@ -33,13 +33,12 @@ function startGame() {
     currentQuestionIndex = 0;
     questionContEl.classList.remove('hide'); //remove the hiden questions in questionContEl so they can be seen
     countdownTimerEl.classList.remove('hide');
-    showQuestion(currentQuestionIndex)
+    showQuestion(currentQuestionIndex);
 }
 
 
 //setting the countdown timer to 75 seconds 
 function countdown() {
-    var timeLeft = 75;
     //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
     //when time reaches 0, timeInterval is cleared and function ends. 
     var timeInterval = setInterval(function() {
@@ -47,7 +46,7 @@ function countdown() {
         countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
         if (timeLeft == 0) {
             clearInterval(timeInterval);
-            timerEl.textContent = "Time's Up!"
+            countdownTimerEl.textContent = "Time's Up!"
         }
     }, 1000);
 }
@@ -67,49 +66,51 @@ function showQuestion(currentQuestionIndex) {
     });
 };
 
-function setNextQuestion() {
-    resetState()
-    showQuestion[currentQuestionIndex]
-}
-
 
 function selectAnswer(e) {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
     if (correct) {
-        console.log("correct");
+        console.log("correct"); //working till here 
         selectedButton.classList.add('correct');
         if (currentQuestionIndex < (questions.length - 1)) {
-            setTimeout(function() {
-                currentQuestionIndex++;
-                reset();
-                showQuestion();
-            }, 200);
-        } else {
-            console.log("correct, no more questions");
-            setTimeout(function() {
-                gameEnd();
-            }, 200);
+            // setTimeout(function() {
+            //     currentQuestionIndex++;
+            //     reset();
+            //     showQuestion();
+            // }, 200);
+            // } else {
+            //     console.log("correct, no more questions");
+            //     setTimeout(function() {
+            //         gameEnd();
+            //     }, 200);
         };
     } else {
         console.log("incorrect");
         selectedButton.classList.add('wrong');
         countdownTimerEl.classList.add('wrong');
         timeLeft = timeLeft - 10;
-        if (currentQuestionIndex < (questions.length - 1)) {
-            setTimeout(function() {
-                currentQuestionIndex++;
-                reset();
-                showQuestion();
-            }, 500);
-        } else {
-            console.log("incorrect, no more questions");
-            setTimeout(function() {
-                gameEnd();
-            }, 500);
-        };
-    }
+        // if (currentQuestionIndex < (questions.length - 1)) {
+        // setTimeout(function() {
+        //     currentQuestionIndex++;
+        //     reset();
+        //     showQuestion();
+        // }, 500);
+        // } else {
+        //     console.log("incorrect, no more questions");
+        //     setTimeout(function() {
+        //         gameEnd();
+        //     }, 500);
+    };
 
+
+}
+
+function setNextQuestion() {
+    resetState()
+    if (currentQuestionIndex < (question.length - 1)) {
+        showQuestion[currentQuestionIndex]
+    }
 }
 
 function reset() {
