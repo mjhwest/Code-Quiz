@@ -14,48 +14,10 @@ var questionContEl = document.querySelector("#question-container");
 var questionElement = document.querySelector('#question');
 var answerButtonsElement = document.querySelector("#answer-button");
 var countdownTimerEl = document.querySelector("#countdown");
+var userDetailEl = document.querySelector("#user-details");
 
 var countdown, currentQuestionIndex;
 var timeLeft = 75;
-
-
-
-//Creating 4 different questions for the quizz 
-var questions = [{
-        question: "What does CSS stand for? ",
-        answers: [
-            { text: "Cool Style Science", correct: false },
-            { text: "Cascading Style Sheet", correct: true },
-            { text: "Computer Social Status", correct: false },
-            { text: "Computer System Security", correct: false }
-        ]
-    },
-    {
-        question: "How many milliseconds make up 1 second?",
-        answers: [
-            { text: "10", correct: false },
-            { text: "100.", correct: false },
-            { text: "1000", correct: true },
-            { text: "10000", correct: false }
-        ]
-    },
-    {
-        question: "Which of the following is not primitive value in JavaScript ?",
-        answers: [
-            { text: "String", correct: false },
-            { text: "Boolean.", correct: false },
-            { text: "Alert", correct: true },
-            { text: "Number", correct: false }
-        ]
-    },
-    {
-        question: "Is The Quiz Finised? ",
-        answers: [
-            { text: "No", correct: false },
-            { text: "Yes", correct: true }
-        ]
-    }
-];
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
 startButton.addEventListener("click", startGame)
@@ -111,16 +73,16 @@ function selectAnswer(e) {
         console.log("correct answer"); //working till here 
         selectedAnswer.classList.add('correct');
         if (currentQuestionIndex < (questions.length - 1)) {
-            // setTimeout(function() {
-            //     currentQuestionIndex++;
-            //     reset();
-            //     showQuestion();
-            // }, 200);
+            setTimeout(function() {
+                currentQuestionIndex++;
+                reset();
+                showQuestion();
+            }, 200);
         } else {
             console.log("no more questions");
-            // setTimeout(function() {
-            //     gameFin();
-            // }, 200);
+            setTimeout(function() {
+                gameFin();
+            }, 200);
         };
     } else {
         console.log("incorrect");
@@ -128,20 +90,20 @@ function selectAnswer(e) {
         countdownTimerEl.classList.add('wrong');
         timeLeft = timeLeft - 10;
 
-        // if (currentQuestionIndex < (questions.length - 1)) {
-        // setTimeout(function() {
-        //     currentQuestionIndex++;
-        //     reset();
-        //     showQuestion();
-        // }, 500);
-        // } else {
-        //     console.log("incorrect, no more questions");
-        //     setTimeout(function() {
-        //         gameEnd();
-        //     }, 500);
-    };
+        if (currentQuestionIndex < (questions.length - 1)) {
+            setTimeout(function() {
+                currentQuestionIndex++;
+                reset();
+                showQuestion();
+            }, 500);
+        } else {
+            console.log("incorrect, no more questions");
+            setTimeout(function() {
+                gameEnd();
+            }, 500);
+        };
 
-
+    }
 }
 
 function setNextQuestion() {
@@ -150,6 +112,7 @@ function setNextQuestion() {
         showQuestion[currentQuestionIndex]
     }
 }
+
 
 function reset() {
     countdownTimerEl.classList.remove('wrong');
@@ -161,3 +124,47 @@ function reset() {
             (answerButtonsElement.firstChild)
     }
 };
+
+function gameFin() {
+    clearInterval(timeInterval);
+    questionContEl.classList.add('hide');
+    countdownTimerEl.classList.add('hide');
+    userDetailEl.classList.remove('hide');
+}
+
+//Creating 4 different questions for the quizz 
+var questions = [{
+        question: "What does CSS stand for? ",
+        answers: [
+            { text: "Cool Style Science", correct: false },
+            { text: "Cascading Style Sheet", correct: true },
+            { text: "Computer Social Status", correct: false },
+            { text: "Computer System Security", correct: false }
+        ]
+    },
+    {
+        question: "How many milliseconds make up 1 second?",
+        answers: [
+            { text: "10", correct: false },
+            { text: "100.", correct: false },
+            { text: "1000", correct: true },
+            { text: "10000", correct: false }
+        ]
+    },
+    {
+        question: "Which of the following is not primitive value in JavaScript ?",
+        answers: [
+            { text: "String", correct: false },
+            { text: "Boolean.", correct: false },
+            { text: "Alert", correct: true },
+            { text: "Number", correct: false }
+        ]
+    },
+    {
+        question: "Is The Quiz Finised? ",
+        answers: [
+            { text: "No", correct: false },
+            { text: "Yes", correct: true }
+        ]
+    }
+];
