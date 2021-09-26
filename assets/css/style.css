@@ -70,14 +70,16 @@ p {
 
 /* Start Button Stlying  */
 
-#start-btn {
+#start-btn,
+#next-btn {
     margin-top: 20px;
     border-radius: 5px;
     padding: 50px;
     font-size: 30px;
 }
 
-#start-btn:hover {
+#start-btn:hover,
+#next-btn:hover {
     background-color: skyblue;
 }
 

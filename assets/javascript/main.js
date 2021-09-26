@@ -10,7 +10,6 @@
 //Declaring variables to target
 var currentQuestionIndex = 0
 var startButton = document.querySelector("#start-btn");
-// var nextButton = document.querySelector("#next-btn"); //this may not work
 var questionContEl = document.querySelector("#question-container");
 var questionElement = document.querySelector('#question');
 var answerButtonsElement = document.querySelector("#answer-button");
@@ -73,66 +72,45 @@ function setNextQuestion() {
     showQuestion[currentQuestionIndex]
 }
 
-function resetState() {
-    nextButton.classList.add("hide")
-    while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-    }
-}
 
 function selectAnswer(e) {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
-            setStatusClass(button, button.dataset.correct)
-        }) //new here
     if (correct) {
-        console.log("correct")
-
-    }
-
-    // nextButton.classList.remove('hide')
-}
-
-function setStatusClass(element, correct) {
-    clearStatusClass(element)
-    if (correct) {
-        element.classList.add('correct')
+        console.log("correct");
+        selectedButton.classList.add('correct');
+        if (currentQuestionIndex < (questions.length - 1)) {
+            setTimeout(function() {
+                currentQuestionIndex++;
+                reset();
+                showQuestion();
+            }, 200);
+        } else {
+            console.log("correct, no more questions");
+            setTimeout(function() {
+                gameEnd();
+            }, 200);
+        };
     } else {
-        element.classList.add('wrong')
+        console.log("incorrect");
+        selectedButton.classList.add('wrong');
+        countdownTimerEl.classList.add('wrong');
+        timeLeft = timeLeft - 10;
+        if (currentQuestionIndex < (questions.length - 1)) {
+            setTimeout(function() {
+                currentQuestionIndex++;
+                reset();
+                showQuestion();
+            }, 500);
+        } else {
+            console.log("incorrect, no more questions");
+            setTimeout(function() {
+                gameEnd();
+            }, 500);
+        };
     }
+
 }
-
-function clearStatusClass(element) {
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
