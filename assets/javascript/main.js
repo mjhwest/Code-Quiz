@@ -28,9 +28,6 @@ function startGame() {
     showQuestion(currentQuestionIndex)
 }
 
-function setNextQuestion() {
-    showQuestion[currentQuestionIndex]
-}
 
 function showQuestion(currentQuestionIndex) {
     questionElement.innerText = questions[currentQuestionIndex].question
@@ -44,6 +41,10 @@ function showQuestion(currentQuestionIndex) {
         button.addEventListener("click", selectAnswer)
         answerButtonsElement.appendChild(button)
     })
+}
+
+function setNextQuestion() {
+    showQuestion[currentQuestionIndex]
 }
 
 function selectAnswer() {}
