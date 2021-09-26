@@ -44,7 +44,7 @@ function countdown() {
     //when time reaches 0, timeInterval is cleared and function ends. 
     var timeInterval = setInterval(function() {
         timeLeft--;
-        countdownTimerEl.textContent = timeLeft + "second left to complete quiz"
+        countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
         if (timeLeft == 0) {
             clearInterval(timeInterval);
             timerEl.textContent = "Time's Up!"
@@ -111,6 +111,18 @@ function selectAnswer(e) {
     }
 
 }
+
+function reset() {
+    countdownTimerEl.classList.remove('wrong');
+    // if there are answers we want to remove them
+    while (answerButtonsElement.firstChild) {
+        // remove the answers
+        answerButtonsElement.removeChild
+            // check if there are still answers
+            (answerButtonsElement.firstChild)
+    }
+};
+
 
 
 
