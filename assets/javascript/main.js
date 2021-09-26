@@ -9,6 +9,7 @@
 
 
 //Declaring variables to target
+var currentQuestionIndex = 0
 var startButton = document.querySelector("#start-btn");
 var questionContEl = document.querySelector("#Question");
 var questionElement = document.querySelector('#Question');
@@ -23,16 +24,11 @@ function startGame() {
     startButton.classList.add('hide') //hide the start button onces it selected as the game has started. 
     currentQuestionIndex = 0;
     questionContEl.classList.remove('hide'); //remove the hiden questions in questionContEl so they can be seen
-    showNextQuestion()
+    showQuestion(currentQuestionIndex)
 }
 
-function showNextQuestion() {
-    showQuestion[currentQuestionIndex]
-}
-
-function showQuestion(question) {
-    questionElement.innerHTML = question.question
-
+function showQuestion(currentQuestionIndex) {
+    questionElement.innerHTML = questions[currentQuestionIndex].question
 }
 
 function selectAnswer() {
