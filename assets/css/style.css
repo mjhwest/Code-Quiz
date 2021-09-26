@@ -113,7 +113,7 @@ p {
 /* hiding the questions so they dont display until Quiz starts */
 
 .hide {
-    /* display: none; */
+    display: none;
 }
 
 

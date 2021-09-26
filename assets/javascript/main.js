@@ -10,7 +10,7 @@
 
 //Declaring variables to target
 var startButton = document.querySelector("#start-btn");
-var questionContEl = document.querySelector("#Question");
+var questionContEl = document.querySelector("#Question-container");
 var questionElement = document.querySelector('Question');
 var answerButtonsElement = document.querySelector('answer-buttons');
 
@@ -32,6 +32,7 @@ function showNextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerHTML = question.question
+
 }
 
 function selectAnswer() {
