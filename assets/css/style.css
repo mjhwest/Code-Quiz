@@ -11,13 +11,21 @@ body {
     line-height: 1.5;
 }
 
-
-/* Heading and Font styles  */
+nav {
+    display: flex;
+    justify-content: left;
+    color: red;
+    font-size: 20px;
+    padding-left: 25%;
+}
 
 header {
     padding: auto;
     background-color: rgb(48, 47, 47);
 }
+
+
+/* Heading  styles  */
 
 h1 {
     font-size: 35px;
@@ -27,34 +35,16 @@ h1 {
     color: red;
 }
 
-nav {
-    display: flex;
-    justify-content: left;
-    color: red;
-    font-size: 20px;
-    padding-left: 25%;
+h2 {
+    font-size: 30px;
+    color: cornflowerblue;
 }
 
 p {
     margin-top: 10px;
     color: red;
     font-size: 25px;
-    text-align: justify;
-}
-
-#Question {
-    font-size: 20px;
-    color: red;
-}
-
-#start {
-    margin-top: 20px;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-#start:hover {
-    background-color: skyblue;
+    text-align: center;
 }
 
 
@@ -67,10 +57,7 @@ p {
     height: 500px;
     background-color: rgb(48, 47, 47);
     margin-left: 25%;
-}
-
-.wrapper-flexbox {
-    flex: auto;
+    display: flex;
 }
 
 .questionContainer {
@@ -80,12 +67,31 @@ p {
     background-color: rgb(48, 47, 47);
 }
 
+
+/* Start Button Stlying  */
+
+#start-btn {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 50px;
+    font-size: 30px;
+}
+
+#start-btn:hover {
+    background-color: skyblue;
+}
+
+
+/* Question Buttons and Stlying  */
+
 #Question {
-    max-width: 80%;
+    max-width: 100%;
     background-color: salmon;
     margin: auto;
     border-radius: 6px;
     padding: 10px;
+    font-size: 20px;
+    height: 250px;
 }
 
 .btn-grid {
@@ -101,4 +107,20 @@ p {
 
 .btn:hover {
     background-color: skyblue;
+}
+
+
+/* hiding the questions so they dont display until Quiz starts */
+
+.hide {
+    /* display: none; */
+}
+
+
+/* making sure control button is center and not    */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

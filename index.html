@@ -19,33 +19,29 @@
         </nav>
     </header>
 
-    <!-- Creat a div container that will hold the elements for the quizz  -->
-    <div class="wrapper-container">
-        <div class="wrapper-flexbox">
-
+    <main>
+        <!-- Creat a div container that will hold the elements for the quizz  -->
+        <section class="wrapper-container">
             <!-- make a header with a title for the quiz and create a start button -->
             <header>
-                <div id="questionContainer" class="hide">
-                    <p> Your aim is to answer the code inspired questoins correctly to test your knownledge. But remember, any incorrect answers will result in a time deduction of 10 seconds.
-                    </p>
-                    <br>
-                    <div id="Question"> Question
-                        <div id="answer-button" class="btn-grid">
-                            <button class='btn'> Answer 1 </button>
-                            <button class='btn'> Answer 2 </button>
-                            <button class='btn'> Answer 3 </button>
-                            <button class='btn'> Answer 4 </button>
-                        </div>
-                        <div class="controls">
-                            <!-- create a start button for the quiz -->
-                            <button id="start" class="start-btn"> Start the Quiz </button>
-                        </div>
 
+                <p> Your aim is to answer the code inspired questoins correctly to test your knownledge. But remember, any incorrect answers will result in a time deduction of 10 seconds.
+                </p>
+                <br>
+                <div id="Question" class="hide">
+                    <h2> Question </h2>
+                    <div id="answer-button" class="btn-grid">
+                        <button class='btn'> Answer 1 </button>
+                        <button class='btn'> Answer 2 </button>
+                        <button class='btn'> Answer 3 </button>
+                        <button class='btn'> Answer 4 </button>
                     </div>
                 </div>
 
-
-
+                <div class="controls">
+                    <!-- create a start button for the quiz -->
+                    <button id="start-btn" class="start-q"> Start the Quiz </button>
+                </div>
 
 
                 <!-- Create a div class for the time element of the quizz -->
@@ -53,7 +49,9 @@
                     <p id="countdown"></p>
                 </div>
             </header>
-        </div>
+        </section>
+    </main>
+
     </div>
     <!-- Link the javascript to the html  -->
     <script src="assets/javascript/main.js"></script>
