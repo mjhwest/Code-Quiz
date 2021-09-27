@@ -14,10 +14,11 @@ var questionContEl = document.querySelector("#question-container");
 var questionElement = document.querySelector('#question');
 var answerButtonsElement = document.querySelector("#answer-button");
 var countdownTimerEl = document.querySelector("#countdown");
-var userDetailEl = document.querySelector("#user-details");
+var userDetailEl = document.querySelector("#user-container");
+
 
 var countdown, currentQuestionIndex;
-var timeLeft = 75;
+var timeLeft = 60;
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
 startButton.addEventListener("click", startGame)
@@ -25,6 +26,17 @@ startButton.addEventListener("click", function() {
     countdown();
     console.log(countdown)
 });
+
+
+//end the game and move to a submit form 
+function gameFin() {
+    clearInterval(timeInterval); //stop the time 
+    questionContEl.classList.add('hide'); // hide the question container 
+    countdownTimerEl.classList.add('hide'); //hide the clock
+    userDetailEl.classList.remove('hide'); //allow userdetails cointainer to appear 
+}
+
+
 
 //creating a function that starts the game 
 function startGame() {
@@ -40,7 +52,7 @@ function startGame() {
 function countdown() {
     //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
     //when time reaches 0, timeInterval is cleared and function ends. 
-    var timeInterval = setInterval(function() {
+    timeInterval = setInterval(function() {
         timeLeft--;
         countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
         if (timeLeft === 0) {
@@ -73,38 +85,31 @@ function selectAnswer(e) {
         console.log("correct answer"); //working till here 
         selectedAnswer.classList.add('correct');
         if (currentQuestionIndex < (questions.length - 1)) {
-            setTimeout(function() {
-                currentQuestionIndex++;
-                reset();
-                showQuestion();
-            }, 200);
+            currentQuestionIndex++;
+            reset();
+            showQuestion();
         } else {
             console.log("no more questions");
-            setTimeout(function() {
-                gameFin();
-            }, 200);
+            gameFin();
         };
     } else {
         console.log("incorrect");
         selectedAnswer.classList.add('wrong');
         countdownTimerEl.classList.add('wrong');
         timeLeft = timeLeft - 10;
-
         if (currentQuestionIndex < (questions.length - 1)) {
-            setTimeout(function() {
-                currentQuestionIndex++;
-                reset();
-                showQuestion();
-            }, 500);
+            currentQuestionIndex++;
+            reset();
+            showQuestion();
         } else {
             console.log("incorrect, no more questions");
-            setTimeout(function() {
-                gameEnd();
-            }, 500);
+            gameFin();
+            console.log("no more games")
         };
 
     }
 }
+
 
 function setNextQuestion() {
     resetState()
@@ -112,7 +117,6 @@ function setNextQuestion() {
         showQuestion[currentQuestionIndex]
     }
 }
-
 
 function reset() {
     countdownTimerEl.classList.remove('wrong');
@@ -124,13 +128,6 @@ function reset() {
             (answerButtonsElement.firstChild)
     }
 };
-
-function gameFin() {
-    clearInterval(timeInterval);
-    questionContEl.classList.add('hide');
-    countdownTimerEl.classList.add('hide');
-    userDetailEl.classList.remove('hide');
-}
 
 //Creating 4 different questions for the quizz 
 var questions = [{

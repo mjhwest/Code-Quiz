@@ -47,6 +47,10 @@ p {
     text-align: center;
 }
 
+nav a {
+    color: red;
+}
+
 
 /* format for sections  */
 
