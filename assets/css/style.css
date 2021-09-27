@@ -37,7 +37,7 @@ h1 {
 
 h2 {
     font-size: 30px;
-    color: cornflowerblue;
+    color: black;
 }
 
 p {
@@ -51,6 +51,21 @@ nav a {
     color: red;
 }
 
+h3 {
+    font-size: 40px;
+}
+
+.user p {
+    color: black;
+}
+
+h4 {
+    color: black;
+    font-size: 30px;
+    margin: initial;
+    text-align: center;
+}
+
 
 /* format for sections  */
 
@@ -62,6 +77,7 @@ nav a {
     background-color: rgb(48, 47, 47);
     margin-left: 25%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .questionContainer {
@@ -71,26 +87,62 @@ nav a {
     background-color: rgb(48, 47, 47);
 }
 
+.highscore-container {
+    max-width: 50%;
+    background-color: salmon;
+    border-radius: 6px;
+    padding: 10px;
+    height: 250px;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 25%;
+    margin-top: 4%;
+}
+
 
 /* Start Button Stlying  */
 
-#start-btn,
-#next-btn {
+#start-btn {
     margin-top: 20px;
     border-radius: 5px;
     padding: 50px;
     font-size: 30px;
 }
 
+#clear-btn {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 20px;
+    margin-left: 38%;
+    max-width: 25%;
+}
+
 #start-btn:hover,
-#next-btn:hover {
+#clear-btn:hover {
     background-color: skyblue;
+}
+
+
+/* Submit Form Button  */
+
+#submit {
+    border-radius: 5px;
+    background-color: burlywood;
+    padding: 10px;
+}
+
+#submit:hover {
+    background-color: lightgreen;
 }
 
 
 /* Question Buttons and Stlying  */
 
-#question-container {
+#question-container,
+#user-container {
     max-width: 100%;
     background-color: salmon;
     margin: auto;
@@ -116,7 +168,7 @@ nav a {
 }
 
 
-/* hiding the questions so they dont display until Quiz starts */
+/* hiding element so they dont display until Quiz starts or ends  */
 
 .hide {
     display: none;

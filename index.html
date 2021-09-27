@@ -23,7 +23,6 @@
         <section class="wrapper-container">
             <!-- make a header with a title for the quiz and create a start button -->
             <header>
-
                 <p> Your aim is to answer the code inspired questoins correctly to test your knownledge. But remember, any incorrect answers will result in a time deduction of 10 seconds.
                 </p>
                 <br>
@@ -33,22 +32,37 @@
                     </div>
                 </div>
 
-                <div class="user">
-                    <p id="user-container" class="hide">
-                </div>
-
-
                 <div class="controls">
                     <!-- create a start button for the quiz -->
                     <button id="start-btn" class="start-q"> Start the Quiz </button>
-                    <!-- <button id="next-btn" class="next-q hide"> Next Question </button> -->
                 </div>
-
 
                 <!-- Create a div class for the time element of the quizz -->
                 <div class="timer">
                     <p id="countdown" class="hide"></p>
-                </div>
+
+
+                    <!-- create a user container that will become available once the quiz is complete  -->
+                    <div class="user">
+                        <div id="user-container" class="hide">
+                            <h3> You Finished This Quiz!</h3>
+                            <p> GYou completed the quiz! Enter your initials into the box below to record you score and see how you compared against other quiz champions!</p>
+                            <form method="POST">
+                                <label for="initials"> Put your initials here </label>
+                                <input type="text" name="initials" id="initials" placeholder="">
+                                <button id="submit"> Submit Your Score </button>
+                            </form>
+
+
+
+
+                        </div>
+
+                    </div>
+
+
+
+
             </header>
         </section>
     </main>
