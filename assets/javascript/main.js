@@ -23,6 +23,13 @@ var userInitials = document.querySelector("#initials");
 var countdown, currentQuestionIndex;
 var timeLeft = 60;
 
+//redirecting you to highscores page when you submit your highscore
+var submitButton = document.querySelector("highscores");
+submitScoreButton.addEventListener("click", function() {
+    document.location.href = "highscores.html";
+});
+
+
 //Submitting the users initials in the form, 
 submitScoreButton.addEventListener("click", function(event) {
     //preventing the form from running its default behavour 
@@ -32,14 +39,11 @@ submitScoreButton.addEventListener("click", function(event) {
         initials: userInitials.value.trim(),
         score: timeLeft
     };
-    console.log(userScore)
+    console.log(userScore) //this works 
 
     // setting the new submissin to local storage.  
     localStorage.setItem("userScore", JSON.stringify(userScore));
-
 });
-
-
 
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
