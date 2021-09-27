@@ -15,6 +15,7 @@ var questionElement = document.querySelector('#question');
 var answerButtonsElement = document.querySelector("#answer-button");
 var countdownTimerEl = document.querySelector("#countdown");
 var userDetailEl = document.querySelector("#user-container");
+var scoreArray = localStorage.getItem("highScores") || [];
 
 //i need to make an initial var  and a submit initial var
 var submitScoreButton = document.querySelector("#submit");
