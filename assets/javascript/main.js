@@ -21,13 +21,8 @@ var scoreArray = localStorage.getItem("highScores") || [];
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
 
-var timeLeft = 60;
+var timeLeft = 40;
 
-//redirecting you to highscores page when you submit your highscore
-var submitButton = document.querySelector("highscores");
-submitScoreButton.addEventListener("click", function() {
-    document.location.href = "highscores.html";
-});
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
 startButton.addEventListener("click", startGame)
@@ -84,7 +79,7 @@ function selectAnswer(e) {
     const selectedAnswer = e.target
     const correct = selectedAnswer.dataset.correct;
     if (correct) {
-        console.log("correct answer");
+        // console.log("correct answer");
         selectedAnswer.classList.add('correct');
         if (currentQuestionIndex < (questions.length - 1)) { //reduce the number of questions by 1
             currentQuestionIndex++;
@@ -95,7 +90,7 @@ function selectAnswer(e) {
             gameFin();
         };
     } else {
-        console.log("incorrect");
+        // console.log("incorrect");
         selectedAnswer.classList.add('wrong');
         countdownTimerEl.classList.add('wrong');
         timeLeft = timeLeft - 10;
@@ -139,20 +134,35 @@ function gameFin() {
     userDetailEl.classList.remove('hide'); //allow userdetails cointainer to appear 
 }
 
-
 //Submitting the users initials in the form, 
 submitScoreButton.addEventListener("click", function(event) {
     //preventing the form from running its default behavour 
     event.preventDefault();
     // create object for storage using user initials and timeLeft in countdown
-    const userScore = {
-        initials: userInitials.value.trim(),
-        score: timeLeft
-    };
-    console.log(userScore) //this works 
-        // setting the new submissin to local storage.  
-    localStorage.setItem("userScore", JSON.stringify(userScore));
+    scoreLog.push(`Player: ${userInitials.value.trim()} - Score: ${timeLeft}`);
+    localStorage.setItem('scoreLog', JSON.stringify(scoreLog));
+    window.location.replace('highscores.html')
 });
+
+var scoreLog = [];
+
+function init() {
+    var storedScores = JSON.parse(localStorage.getItem('scoreLog'));
+    if (storedScores !== null) {
+        scoreLog = storedScores
+    };
+};
+init();
+
+
+//redirecting you to highscores page when you submit your highscore
+var submitButton = document.querySelector("highscores");
+submitScoreButton.addEventListener("click", function() {
+    document.location.href = "highscores.html";
+});
+
+
+
 
 //Creating 4 different questions for the quizz 
 var questions = [{
