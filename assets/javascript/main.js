@@ -21,7 +21,6 @@ var scoreArray = localStorage.getItem("highScores") || [];
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
 
-var countdown, currentQuestionIndex;
 var timeLeft = 60;
 
 //redirecting you to highscores page when you submit your highscore
@@ -30,39 +29,12 @@ submitScoreButton.addEventListener("click", function() {
     document.location.href = "highscores.html";
 });
 
-
-//Submitting the users initials in the form, 
-submitScoreButton.addEventListener("click", function(event) {
-    //preventing the form from running its default behavour 
-    event.preventDefault();
-    // create object for storage using user initials and timeLeft in countdown
-    const userScore = {
-        initials: userInitials.value.trim(),
-        score: timeLeft
-    };
-    console.log(userScore) //this works 
-        // setting the new submissin to local storage.  
-    localStorage.setItem("userScore", JSON.stringify(userScore));
-});
-
-
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
 startButton.addEventListener("click", startGame)
 startButton.addEventListener("click", function() {
     countdown();
     console.log(countdown)
 });
-
-
-//end the game and move to a submit form 
-function gameFin() {
-    clearInterval(timeInterval); //stop the time 
-    questionContEl.classList.add('hide'); // hide the question container 
-    countdownTimerEl.classList.add('hide'); //hide the clock
-    userDetailEl.classList.remove('hide'); //allow userdetails cointainer to appear 
-}
-
-
 
 //creating a function that starts the game 
 function startGame() {
@@ -89,6 +61,8 @@ function countdown() {
     }, 1000);
 }
 
+//show the question once the event has started, 
+//questions are based on the variable questoins. 
 function showQuestion() {
     const question = questions[currentQuestionIndex];
     questionElement.innerText = questions[currentQuestionIndex].question
@@ -104,13 +78,15 @@ function showQuestion() {
     });
 };
 
+
+//selecting answer function 
 function selectAnswer(e) {
     const selectedAnswer = e.target
     const correct = selectedAnswer.dataset.correct;
     if (correct) {
-        console.log("correct answer"); //working till here 
+        console.log("correct answer");
         selectedAnswer.classList.add('correct');
-        if (currentQuestionIndex < (questions.length - 1)) {
+        if (currentQuestionIndex < (questions.length - 1)) { //reduce the number of questions by 1
             currentQuestionIndex++;
             reset();
             showQuestion();
@@ -136,14 +112,14 @@ function selectAnswer(e) {
     }
 }
 
-
+//display the next question. 
 function setNextQuestion() {
     resetState()
     if (currentQuestionIndex < question.length - 1) {
         showQuestion[currentQuestionIndex]
     }
 }
-
+//rest function to remove all elements
 function reset() {
     countdownTimerEl.classList.remove('wrong');
     // if there are answers we want to remove them
@@ -155,8 +131,28 @@ function reset() {
     }
 };
 
+//end the game and move to a submit form 
+function gameFin() {
+    clearInterval(timeInterval); //stop the time 
+    questionContEl.classList.add('hide'); // hide the question container 
+    countdownTimerEl.classList.add('hide'); //hide the clock
+    userDetailEl.classList.remove('hide'); //allow userdetails cointainer to appear 
+}
 
 
+//Submitting the users initials in the form, 
+submitScoreButton.addEventListener("click", function(event) {
+    //preventing the form from running its default behavour 
+    event.preventDefault();
+    // create object for storage using user initials and timeLeft in countdown
+    const userScore = {
+        initials: userInitials.value.trim(),
+        score: timeLeft
+    };
+    console.log(userScore) //this works 
+        // setting the new submissin to local storage.  
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+});
 
 //Creating 4 different questions for the quizz 
 var questions = [{
