@@ -40,8 +40,7 @@ submitScoreButton.addEventListener("click", function(event) {
         score: timeLeft
     };
     console.log(userScore) //this works 
-
-    // setting the new submissin to local storage.  
+        // setting the new submissin to local storage.  
     localStorage.setItem("userScore", JSON.stringify(userScore));
 });
 
