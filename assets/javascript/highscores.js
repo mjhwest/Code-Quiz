@@ -1,8 +1,3 @@
-//Decalre Variables 
-//to show the highscore and to clear the highscores in local storage
-
-// var highScore = document.querySelector("#score-tally");
-
 //To retrive scores from local storage 
 var retrievedObject = localStorage.getItem('userScore');
 console.table('retrievedObject', JSON.parse(retrievedObject));
@@ -22,7 +17,7 @@ function renderScores() {
     for (var i = 0; i < topScores; i++) {
         let score = scores[i];
         let li = document.createElement("li");
-        li.textContent = `Player: ${score.initials} - Score: ${score.score}`;
+        li.textContent = score;
         scoreList.appendChild(li);
     };
 };
@@ -32,11 +27,13 @@ function init() {
     if (storedScores !== null) {
         scores = storedScores
     };
+    console.log(storedSc)
 
     renderScores()
 };
 
 init();
+
 
 
 
