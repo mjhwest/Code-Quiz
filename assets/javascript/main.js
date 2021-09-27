@@ -16,9 +16,31 @@ var answerButtonsElement = document.querySelector("#answer-button");
 var countdownTimerEl = document.querySelector("#countdown");
 var userDetailEl = document.querySelector("#user-container");
 
+//i need to make an initial var  and a submit initial var
+var submitScoreButton = document.querySelector("#submit");
+var userInitials = document.querySelector("#initials");
 
 var countdown, currentQuestionIndex;
 var timeLeft = 60;
+
+//Submitting the users initials in the form, 
+submitScoreButton.addEventListener("click", function(event) {
+    //preventing the form from running its default behavour 
+    event.preventDefault();
+    // create object for storage using user initials and timeLeft in countdown
+    const userScore = {
+        initials: userInitials.value.trim(),
+        score: timeLeft
+    };
+    console.log(userScore)
+
+    // setting the new submissin to local storage.  
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+
+});
+
+
+
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
 startButton.addEventListener("click", startGame)
@@ -129,6 +151,9 @@ function reset() {
     }
 };
 
+
+
+
 //Creating 4 different questions for the quizz 
 var questions = [{
         question: "What does CSS stand for? ",
@@ -158,7 +183,7 @@ var questions = [{
         ]
     },
     {
-        question: "Is The Quiz Finised? ",
+        question: "Is Javascript difficult to learn? ",
         answers: [
             { text: "No", correct: false },
             { text: "Yes", correct: true }
