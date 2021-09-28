@@ -21,7 +21,7 @@ var scoreArray = localStorage.getItem("highScores") || [];
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
 
-var timeLeft = 40;
+var timeLeft = 75;
 
 
 //creating an event lister so when you click on the start button it starts quiz and countdown begins
@@ -139,7 +139,7 @@ submitScoreButton.addEventListener("click", function(event) {
     //preventing the form from running its default behavour 
     event.preventDefault();
     // create object for storage using user initials and timeLeft in countdown
-    scoreLog.push(` ${userInitials.value.trim()} - time: ${timeLeft}`);
+    scoreLog.push(`player name : ${userInitials.value.trim()} -  time left: ${timeLeft}`);
     localStorage.setItem('scoreLog', JSON.stringify(scoreLog));
     window.location.replace('highscores.html')
 });
