@@ -20,7 +20,7 @@ var scoreArray = localStorage.getItem("highScores") || [];
 //i need to make an initial var  and a submit initial var
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
-
+//setting time left to 75 seconds. 
 var timeLeft = 75;
 
 
@@ -36,30 +36,58 @@ function startGame() {
     // console.log("started")
     startButton.classList.add('hide') //hide the start button onces it selected as the game has started. 
     currentQuestionIndex = 0;
-    questionContEl.classList.remove('hide'); //remove the hiden questions in questionContEl so they can be seen
-    countdownTimerEl.classList.remove('hide');
-    showQuestion(currentQuestionIndex);
+    questionContEl.classList.remove('hide'); //remove the hidden questions in questionContEl so they can be seen
+    countdownTimerEl.classList.remove('hide'); //remove the hidden countdownTimerEl so user can see time left
+    showQuestion(currentQuestionIndex); //show  question. 
 }
 
-//setting the countdown timer to 75 seconds 
+//creating the function for countdown. 
 function countdown() {
     //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
     //when time reaches 0, timeInterval is cleared and function ends. 
     timeInterval = setInterval(function() {
+        //decrement 'timeLeft' by 1
         timeLeft--;
+        //countdown time displays seconds left + the message
         countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
+            //if 0 time left, clear interval and gameFin
         if (timeLeft === 0) {
             clearInterval(timeInterval);
-            countdownTimerEl.textContent = "Time's Up!"
+            // countdownTimerEl.textContent = "Time's Up!"
             gameFin();
         }
     }, 1000);
 }
 
+// var timeInterval = setInterval(function() {
+//     // As long as the `timeLeft` is greater than 1
+//     if (timeLeft > 1) {
+//         // Set the `textContent` of `timerEl` to show the remaining seconds
+//         timerEl.textContent = timeLeft + ' seconds remaining';
+//         // Decrement `timeLeft` by 1
+//         timeLeft--;
+//     } else if (timeLeft === 1) {
+//         // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+//         timerEl.textContent = timeLeft + ' second remaining';
+//         timeLeft--;
+//     } else {
+//         // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+//         timerEl.textContent = '';
+//         // Use `clearInterval()` to stop the timer
+//         clearInterval(timeInterval);
+//         // Call the `displayMessage()` function
+//         displayMessage();
+//     }
+// }, 1000);
+
+
+
 //show the question once the event has started, 
 //questions are based on the variable questoins. 
 function showQuestion() {
+    //const question is based on the questions number in array
     const question = questions[currentQuestionIndex];
+    //the question is written in the question container 
     questionElement.innerText = questions[currentQuestionIndex].question
     questions[currentQuestionIndex].answers.forEach(answer => {
         var button = document.createElement('button')
@@ -76,32 +104,35 @@ function showQuestion() {
 
 //selecting answer function 
 function selectAnswer(e) {
+    //targetting the selectedAnswer element
     const selectedAnswer = e.target
+        //storing data for correct answers 
     const correct = selectedAnswer.dataset.correct;
+    //if the correct answer is seclcted
     if (correct) {
         // console.log("correct answer");
         selectedAnswer.classList.add('correct');
         if (currentQuestionIndex < (questions.length - 1)) { //reduce the number of questions by 1
-            currentQuestionIndex++;
-            reset();
-            showQuestion();
-        } else {
-            console.log("no more questions");
+            currentQuestionIndex++; //add one more question
+            reset(); //rest data
+            showQuestion(); //show question
+        } else { //no more questions to show game fin
+            // console.log("no more questions");
             gameFin();
         };
     } else {
-        // console.log("incorrect");
+        // if a sellected answer is wrong, countdown timer adds -10 seconds to time left 
         selectedAnswer.classList.add('wrong');
         countdownTimerEl.classList.add('wrong');
         timeLeft = timeLeft - 10;
         if (currentQuestionIndex < (questions.length - 1)) {
-            currentQuestionIndex++;
+            currentQuestionIndex++; //same principles as above
             reset();
             showQuestion();
         } else {
-            console.log("incorrect, no more questions");
+            // console.log("incorrect, no more questions");
             gameFin();
-            console.log("no more games")
+            // console.log("no more games")
         };
 
     }
@@ -140,7 +171,9 @@ submitScoreButton.addEventListener("click", function(event) {
     event.preventDefault();
     // create object for storage using user initials and timeLeft in countdown
     scoreLog.push(`player name : ${userInitials.value.trim()} -  time left: ${timeLeft}`);
+    //stored in locoal storaged 
     localStorage.setItem('scoreLog', JSON.stringify(scoreLog));
+    //replaced at highscorehtml
     window.location.replace('highscores.html')
 });
 
@@ -155,9 +188,11 @@ function init() {
 init();
 
 
-//redirecting you to highscores page when you submit your highscore
+//submit button is inside the user container which is now unhidden due to gameFin
 var submitButton = document.querySelector("highscores");
+//when button is clicked on the function starts
 submitScoreButton.addEventListener("click", function() {
+    //taken to highscore page
     document.location.href = "highscores.html";
 });
 
