@@ -27,7 +27,7 @@ function init() {
     if (storedScores !== null) {
         scores = storedScores
     };
-    console.log(storedSc)
+    console.log(storedScores)
 
     renderScores()
 };

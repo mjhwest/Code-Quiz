@@ -14,7 +14,6 @@ body {
 nav {
     display: flex;
     justify-content: left;
-    color: red;
     font-size: 20px;
     padding-left: 25%;
 }
@@ -25,14 +24,14 @@ header {
 }
 
 
-/* Heading  styles  */
+/* Font  styles and positions  */
 
 h1 {
     font-size: 35px;
     margin-top: 20px;
     text-align: center;
     padding: 15px;
-    color: red;
+    color: azure
 }
 
 h2 {
@@ -42,13 +41,13 @@ h2 {
 
 p {
     margin-top: 10px;
-    color: red;
+    color: azure;
     font-size: 25px;
     text-align: center;
 }
 
 nav a {
-    color: red;
+    color: azure
 }
 
 h3 {
@@ -60,10 +59,24 @@ h3 {
 }
 
 h4 {
-    color: rgb(78, 156, 13);
     font-size: 30px;
-    margin: initial;
+    margin: auto;
+    margin-top: inherit;
     text-align: center;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    width: max-content;
+}
+
+.ul {
+    font-size: 15px;
+}
+
+#user-container p {
+    flex-direction: column;
+    display: flex;
+    flex: auto;
 }
 
 
@@ -80,6 +93,16 @@ h4 {
     flex-wrap: wrap;
 }
 
+.score-container {
+    width: 50%;
+    justify-content: center;
+    background-color: rgb(48, 47, 47);
+    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
 .questionContainer {
     width: 100%;
     justify-content: center;
@@ -88,36 +111,69 @@ h4 {
 }
 
 .highscore-container {
-    max-width: 50%;
+    max-width: 100%;
     background-color: salmon;
+    border-radius: 40px;
+    padding: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    .highscore-container {
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#question-container {
+    max-width: 100%;
+    background-color: salmon;
+    margin: auto;
     border-radius: 6px;
     padding: 10px;
-    height: 250px;
     font-size: 20px;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 25%;
-    margin-top: 4%;
+    height: auto
+}
+
+#user-container {
+    max-width: 100%;
+    background-color: salmon;
+    margin: auto;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#score-history {
+    height: fit-content;
+    margin-left: 42%;
+    width: fit-content;
+    margin: auto;
 }
 
 
 /* Start Button Stlying  */
 
 #start-btn {
-    margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 50px;
     padding: 50px;
     font-size: 30px;
+    background-color: tan;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    ;
 }
 
 #clear-btn {
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 20px;
     font-size: 20px;
-    margin-left: 38%;
-    max-width: 25%;
+    width: fit-content;
+    margin: auto;
+    background-color: tan;
 }
 
 #start-btn:hover,
@@ -126,7 +182,7 @@ h4 {
 }
 
 
-/* Submit Form Button  */
+/* Submit Form Button and Styling */
 
 #submit {
     border-radius: 5px;
@@ -139,18 +195,7 @@ h4 {
 }
 
 
-/* Question Buttons and Stlying  */
-
-#question-container,
-#user-container {
-    max-width: 100%;
-    background-color: salmon;
-    margin: auto;
-    border-radius: 6px;
-    padding: 10px;
-    font-size: 20px;
-    height: 250px;
-}
+/* Buttons and Stlying  */
 
 .btn-grid {
     display: grid;
@@ -172,13 +217,4 @@ h4 {
 
 .hide {
     display: none;
-}
-
-
-/* making sure control button is center and not    */
-
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

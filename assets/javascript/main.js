@@ -139,7 +139,7 @@ submitScoreButton.addEventListener("click", function(event) {
     //preventing the form from running its default behavour 
     event.preventDefault();
     // create object for storage using user initials and timeLeft in countdown
-    scoreLog.push(`Player: ${userInitials.value.trim()} - Score: ${timeLeft}`);
+    scoreLog.push(` ${userInitials.value.trim()} - time: ${timeLeft}`);
     localStorage.setItem('scoreLog', JSON.stringify(scoreLog));
     window.location.replace('highscores.html')
 });
