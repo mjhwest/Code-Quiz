@@ -1,6 +1,6 @@
 //To retrive scores from local storage 
 var retrievedObject = localStorage.getItem('userScore');
-console.table('retrievedObject', JSON.parse(retrievedObject));
+// console.table('retrievedObject', JSON.parse(retrievedObject));
 
 const scoreList = document.querySelector("#score-history");
 //creating array to store scores 
@@ -10,7 +10,7 @@ let scores = [];
 function renderScores() {
     //topsscore variable
     var topScores;
-    //if statement allowing 6 top scores
+    //if statement, if scores length is less than 6, topscores = scores x length, topscores can = 6 scores 
     if (scores.length < 6) {
         topScores = scores.length
     } else {

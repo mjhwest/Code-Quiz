@@ -1,12 +1,3 @@
-// Declare the variables linked to HTML, 
-//querySelector(xxxx) allows us to work within that specific selector element i.e wrapper
-//documet applies that changes to the entire document 
-
-// var wrapper = document.querySelector(".wrapper");
-// var questionContainer = document.querySelector("#questionContainer");
-// var timerEl = document.querySelector("#countdown");
-// var startEl = document.querySelector("#start")
-
 //Declaring variables to target
 var currentQuestionIndex = 0
 var startButton = document.querySelector("#start-btn");
@@ -16,7 +7,7 @@ var answerButtonsElement = document.querySelector("#answer-button");
 var countdownTimerEl = document.querySelector("#countdown");
 var userDetailEl = document.querySelector("#user-container");
 var scoreArray = localStorage.getItem("highScores") || [];
-
+var gameInstEl = document.querySelector("#user-instructions-container");
 //i need to make an initial var  and a submit initial var
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
@@ -28,57 +19,79 @@ var timeLeft = 75;
 startButton.addEventListener("click", startGame)
 startButton.addEventListener("click", function() {
     countdown();
-    console.log(countdown)
+    // console.log(countdown)
 });
 
 //creating a function that starts the game 
 function startGame() {
     // console.log("started")
     startButton.classList.add('hide') //hide the start button onces it selected as the game has started. 
+    gameInstEl.classList.add('hide') //hide the quiz instructions when the start starGame function begins
     currentQuestionIndex = 0;
     questionContEl.classList.remove('hide'); //remove the hidden questions in questionContEl so they can be seen
     countdownTimerEl.classList.remove('hide'); //remove the hidden countdownTimerEl so user can see time left
     showQuestion(currentQuestionIndex); //show  question. 
 }
+//undo to here too
+// creating the function for countdown. 
+// function countdown() {
+//     //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
+//     //when time reaches 0, timeInterval is cleared and function ends. 
+//     timeInterval = setInterval(function() {
+//         //decrement 'timeLeft' by 1
+//         timeLeft--;
+//         //countdown time displays seconds left + the message
+//         countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
+//             //if 0 time left, clear interval and gameFin
+//         if (timeLeft === 0) {
+//             clearInterval(timeInterval);
+//             // countdownTimerEl.textContent = "Time's Up!"
+//             gameFin();
+//         }
+//     }, 1000);
+// }
 
-//creating the function for countdown. 
+
+//undo to here//
+
 function countdown() {
-    //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
-    //when time reaches 0, timeInterval is cleared and function ends. 
     timeInterval = setInterval(function() {
-        //decrement 'timeLeft' by 1
-        timeLeft--;
-        //countdown time displays seconds left + the message
-        countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
-            //if 0 time left, clear interval and gameFin
-        if (timeLeft === 0) {
+        if (timeLeft > 1) {
+            countdownTimerEl.textContent = timeLeft + ' seconds left!';
+            timeLeft--;
+        } else if (timeLeft === 1) {
+            countdownTimerEl.textContent = timeLeft + ' second left!';
+            timeLeft--;
+        } else if (timeLeft === 0) {
             clearInterval(timeInterval);
-            // countdownTimerEl.textContent = "Time's Up!"
             gameFin();
         }
     }, 1000);
 }
 
-// var timeInterval = setInterval(function() {
-//     // As long as the `timeLeft` is greater than 1
-//     if (timeLeft > 1) {
-//         // Set the `textContent` of `timerEl` to show the remaining seconds
-//         timerEl.textContent = timeLeft + ' seconds remaining';
-//         // Decrement `timeLeft` by 1
-//         timeLeft--;
-//     } else if (timeLeft === 1) {
-//         // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-//         timerEl.textContent = timeLeft + ' second remaining';
-//         timeLeft--;
-//     } else {
-//         // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-//         timerEl.textContent = '';
-//         // Use `clearInterval()` to stop the timer
-//         clearInterval(timeInterval);
-//         // Call the `displayMessage()` function
-//         displayMessage();
-//     }
-// }, 1000);
+
+// function countdown() {
+//     var timeInterval = setInterval(function() {
+//         // As long as the `timeLeft` is greater than 1
+//         if (timeLeft > 1) {
+//             // Set the `textContent` of `timerEl` to show the remaining seconds
+//             countdownTimerEl.textContent = timeLeft + ' seconds remaining';
+//             // Decrement `timeLeft` by 1
+//             timeLeft--;
+//         } else if (timeLeft === 1) {
+//             // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+//             countdownTimerEl.textContent = timeLeft + ' second remaining';
+//             timeLeft--;
+//         } else {
+//             // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+//             countdownTimerEl.textContent = '';
+//             // Use `clearInterval()` to stop the timer
+//             clearInterval(timeInterval);
+//             // Call the `displayMessage()` function
+//             gameFin();
+//         }
+//     }, 1000);
+// }
 
 
 
@@ -219,7 +232,7 @@ var questions = [{
         ]
     },
     {
-        question: "Which of the following are not JavaScript data tyopes?",
+        question: "Which of the following are not JavaScript data types?",
         answers: [
             { text: "String", correct: false },
             { text: "Boolean.", correct: false },
