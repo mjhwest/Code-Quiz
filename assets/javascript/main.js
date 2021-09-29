@@ -242,6 +242,7 @@ var questions = [{
             { text: "Attaches an event handler to an element", correct: true },
             { text: "Listens for a voice command", correct: false },
             { text: "Allows a microphone to work within your landing page", correct: false },
+            { text: "Logical Errors", correct: false }
         ]
     },
     {
