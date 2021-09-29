@@ -201,12 +201,12 @@ submitScoreButton.addEventListener("click", function() {
 
 //Creating 4 different questions for the quizz 
 var questions = [{
-        question: "What does CSS stand for? ",
+        question: "Which of the following is not an undefined vale in Javascript? ",
         answers: [
-            { text: "Cool Style Science", correct: false },
-            { text: "Cascading Style Sheet", correct: true },
-            { text: "Computer Social Status", correct: false },
-            { text: "Computer System Security", correct: false }
+            { text: "Variable used in the code dosent exist", correct: false },
+            { text: "Variable is defined by a secret vale", correct: true },
+            { text: "Property does not exist", correct: false },
+            { text: "Variable is not assigned to any value", correct: false }
         ]
     },
     {
@@ -219,12 +219,29 @@ var questions = [{
         ]
     },
     {
-        question: "Which of the following is not primitive value in JavaScript ?",
+        question: "Which of the following are not JavaScript data tyopes?",
         answers: [
             { text: "String", correct: false },
             { text: "Boolean.", correct: false },
             { text: "Alert", correct: true },
             { text: "Number", correct: false }
+        ]
+    },
+    {
+        question: "Which of the following is not a type of error in Javascript?",
+        answers: [
+            { text: "Load Time Errors", correct: false },
+            { text: "Duplicate Errors", correct: true },
+            { text: "Runtime Errors ", correct: false },
+            { text: "Logical Errors", correct: false }
+        ]
+    },
+    {
+        question: "What does the method 'addEventLister' do ?",
+        answers: [
+            { text: "Attaches an event handler to an element", correct: true },
+            { text: "Listens for a voice command", correct: false },
+            { text: "Allows a microphone to work within your landing page", correct: false },
         ]
     },
     {
