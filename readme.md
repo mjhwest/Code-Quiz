@@ -12,6 +12,9 @@ Similar to prevous tasks i learnt the important of having a plan / structure and
 
 I also learnt the important of researching ideas to help implement work and also that trial and error is a good method to figure out what works and what dosent. 
 
+Here is a link to the deploted applicatoin: 
+https://mjhwest.github.io/Code-Quiz/
+
 
 ## Installation
 There was no installation required for this topic. 
