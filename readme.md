@@ -1,6 +1,5 @@
 # <Create a time based quiz>
 
-
 ## Description
 We were tasked to create a code based quiz that consisted of a time element, a time deduction element, a variety of questions that automatically change once a answer was selected, a sumbit form to log name and scores. 
 
@@ -18,20 +17,16 @@ I also learnt the important of researching ideas to help implement work and also
 There was no installation required for this topic. 
 
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+
 To start the game; in my 'main.js' file i created an event listerner called 'startGame' as well as a function 'countdown'.When startGame (which was a button called Start Quiz) was clicked the game would start, and the countdown function would begin (which was the quiz timer. ) 
 
 The function for start game consisted of a range of elements, which either made elements hide (start button, instruction) as well remove hidden elements so they would appear (questions and countdown would appear, and the first question would appear). startGame 
 
-![startGame] (assets/screenshots/startGame.png)
+![startGame](assets/screenshots/startGame.png)
 
 The countdown timer was set at 75 seconds, if and else if statmenets were designed so the user could see how much time they had left in the quiz, and when the timer ended, the game would finish (gameFin). countdown
 
-![countdown] (assets/screenshots/countdown.png)
+![countdown](assets/screenshots/countdown.png)
 
 Selecting the answer to questions was arguably the most difficult and complex part of the task. 
 It was made up of a number of different elements. 
