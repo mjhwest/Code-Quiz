@@ -8,7 +8,6 @@ var countdownTimerEl = document.querySelector("#countdown");
 var userDetailEl = document.querySelector("#user-container");
 var scoreArray = localStorage.getItem("highScores") || [];
 var gameInstEl = document.querySelector("#user-instructions-container");
-//i need to make an initial var  and a submit initial var
 var submitScoreButton = document.querySelector("#submit");
 var userInitials = document.querySelector("#initials");
 //setting time left to 75 seconds. 

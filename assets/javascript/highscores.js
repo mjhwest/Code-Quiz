@@ -24,17 +24,26 @@ function displayScores() {
         li.textContent = score;
         //appending scorelist
         scoreList.appendChild(li);
+
     };
 };
 
+
+//create a function to retrieve the scores and sort them into highest / lowest order 
 function init() {
     //retrieing the stored scores using JSON parse, which is the reverse of stringify
     var storedScores = JSON.parse(localStorage.getItem("scoreLog"));
+    //a represent intials, b present time left 
+    storedScores.sort(function(a, b) {
+        //use substring method as it will give you the substring from that point to the end, we also use -2 so it gets both numbers left in the time, -1 would only select one digit
+        return a.substring(a.length - 2) - b.substring(b.length - 2)
+            //it is currently displaying, low to high, so we reverse it so its high to low 
+    }).reverse()
     if (storedScores !== null) {
         scores = storedScores
     };
     console.log(storedScores)
-
+        //displauthe scores 
     displayScores()
 };
 
