@@ -33,13 +33,13 @@ It was made up of a number of different elements.
 Firstly, if the answe was correct the the question would be removed and then it would add one more question, if there were no more questions left the game would finish. 
 However, if a user selected the wrong answer then they would be deducted 10 seconds. 
 
-![select](assets/screenshots/select.png)
+![selected](assets/screenshots/select.png)
 
 Once moving to the highscore page, JSON.parse was used to retired the stored answers of the quiz. 
 
 The answers were display using a display socre function, which set the number of scoresthat would be display. This was done by using an if/ else statmenet as well and a for loop. 
 
-![displayscores] (assets/screenshots/displayscores.png)
+![scores] (assets/screenshots/displayscores.png)
 
 The final element that i created was a 'clear button'. Which would remove all stored scores and allow a user to start everything again for scratch. 
 
