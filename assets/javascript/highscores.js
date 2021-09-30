@@ -6,8 +6,8 @@ const scoreList = document.querySelector("#score-history");
 //creating array to store scores 
 let scores = [];
 
-//render the scores 
-function renderScores() {
+//disaply the scores 
+function displayScores() {
     //topsscore variable
     var topScores;
     //if statement, if scores length is less than 6, topscores = scores x length, topscores can = 6 scores 
@@ -35,7 +35,7 @@ function init() {
     };
     console.log(storedScores)
 
-    renderScores()
+    displayScores()
 };
 
 init();

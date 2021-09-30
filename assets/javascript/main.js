@@ -32,66 +32,28 @@ function startGame() {
     countdownTimerEl.classList.remove('hide'); //remove the hidden countdownTimerEl so user can see time left
     showQuestion(currentQuestionIndex); //show  question. 
 }
-//undo to here too
-// creating the function for countdown. 
-// function countdown() {
-//     //use 'setinterval; method to call a function to be executed every 1000 milliseconds, i.e 1 second 
-//     //when time reaches 0, timeInterval is cleared and function ends. 
-//     timeInterval = setInterval(function() {
-//         //decrement 'timeLeft' by 1
-//         timeLeft--;
-//         //countdown time displays seconds left + the message
-//         countdownTimerEl.textContent = timeLeft + " second left to complete quiz!"
-//             //if 0 time left, clear interval and gameFin
-//         if (timeLeft === 0) {
-//             clearInterval(timeInterval);
-//             // countdownTimerEl.textContent = "Time's Up!"
-//             gameFin();
-//         }
-//     }, 1000);
-// }
 
 
-//undo to here//
-
+//function for countdown timer 
 function countdown() {
     timeInterval = setInterval(function() {
+        //if more than 1 second left display seconds left plus message
         if (timeLeft > 1) {
             countdownTimerEl.textContent = timeLeft + ' seconds left!';
+            //decrement operator, taking away 1 second 
             timeLeft--;
+            //else if statement to change message if 1 second change message, use of === is a strict equality comparison operator. 
         } else if (timeLeft === 1) {
             countdownTimerEl.textContent = timeLeft + ' second left!';
             timeLeft--;
+            //same principle as above, but if 0 time left, clear and gameFinished. 
         } else if (timeLeft === 0) {
             clearInterval(timeInterval);
             gameFin();
         }
+        //speed at which seconds are counted, 1000 miliseconds = 1 second
     }, 1000);
 }
-
-
-// function countdown() {
-//     var timeInterval = setInterval(function() {
-//         // As long as the `timeLeft` is greater than 1
-//         if (timeLeft > 1) {
-//             // Set the `textContent` of `timerEl` to show the remaining seconds
-//             countdownTimerEl.textContent = timeLeft + ' seconds remaining';
-//             // Decrement `timeLeft` by 1
-//             timeLeft--;
-//         } else if (timeLeft === 1) {
-//             // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-//             countdownTimerEl.textContent = timeLeft + ' second remaining';
-//             timeLeft--;
-//         } else {
-//             // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-//             countdownTimerEl.textContent = '';
-//             // Use `clearInterval()` to stop the timer
-//             clearInterval(timeInterval);
-//             // Call the `displayMessage()` function
-//             gameFin();
-//         }
-//     }, 1000);
-// }
 
 
 
@@ -183,7 +145,7 @@ submitScoreButton.addEventListener("click", function(event) {
     //preventing the form from running its default behavour 
     event.preventDefault();
     // create object for storage using user initials and timeLeft in countdown
-    scoreLog.push(`player name : ${userInitials.value.trim()} -  time left: ${timeLeft}`);
+    scoreLog.push(` name : ${userInitials.value.trim()} -  time left: ${timeLeft}`);
     //stored in locoal storaged 
     localStorage.setItem('scoreLog', JSON.stringify(scoreLog));
     //replaced at highscorehtml
@@ -255,14 +217,15 @@ var questions = [{
             { text: "Attaches an event handler to an element", correct: true },
             { text: "Listens for a voice command", correct: false },
             { text: "Allows a microphone to work within your landing page", correct: false },
-            { text: "Logical Errors", correct: false }
         ]
     },
     {
-        question: "Is Javascript difficult to learn? ",
+        question: "Inside which HTML element do we put the Javascript? ",
         answers: [
-            { text: "No", correct: false },
-            { text: "Yes", correct: true }
+            { text: "<javascript>", correct: false },
+            { text: "<js>", correct: true },
+            { text: "<scripting> ", correct: false },
+            { text: "<script>", correct: true },
         ]
     }
 ];
