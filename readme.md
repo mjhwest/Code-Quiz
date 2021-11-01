@@ -47,3 +47,10 @@ The answers were display using a display socre function, which set the number of
 The final element that i created was a 'clear button'. Which would remove all stored scores and allow a user to start everything again for scratch. 
 
 ![clear](assets/screenshots/clear.png)
+  
+  ## License
+  
+MIT License
+
+Copyright (c) 2021 Michael West
+
